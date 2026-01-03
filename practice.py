@@ -1,15 +1,16 @@
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
-load_dotenv()
+import config
 
+load_dotenv()
 client = OpenAI(
     api_key = os.getenv("OPENAI_API_KEY")
     )
 
 response = client.responses.create(
-    model="gpt-5",
-    input="No of accounts in MVPAccount"
+    model= config.gpt_model,
+    input="why do i provide this will upload the data to weaviate as a header?"
 )
 
 print(response.output_text)
